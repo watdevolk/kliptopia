@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="scripts/jQuery.js"></script>
+    <style>
+        .division {
+            height:600px;
+            width:460px;
+            border:1px solid black;
+            background-color: #eeeeee;
+            text-align:center;
+            font-family:Tahoma;
+            font-size:18pt;
+            line-height:150px;
+            margin:20px;
+            display:none;
+            float:left;
+        }
+    </style>
+
+</head >
+<body>
+    <script>
+
+        $(document).ready(function () {
+            $("#goButton").click(function () {
+                $("#div1").fadeIn();
+                $("#div2").fadeIn("slow");
+                $("#div3").fadeIn(2000);
+                $("#div4").fadeIn(5000);
+            });
+
+            $("#mo").mouseover(function () {
+                $(this).css("cursor", "crosshair");
+            });
+
+            $("#mo").click(function () {
+                $(this).animate({
+                    width: "120px"
+                }, "slow");                
+            })
+
+            $("#mo").dblclick(function () {
+                $(this).animate({
+                    width: "460px"
+                }, "slow");
+            })
+        })
+    </script>
+    <h1>Using jQuery</h1>
+    <div id="div1" class="division"><img src="images/MoReg1.png" id="mo" /></div>
+    <div id="div2" class="division">Division2</div>
+    <div id="div3" class="division">Division3</div>
+    <div id="div4" class="division">Division4</div>
+    <button id="goButton">GO</button>
+</body>
+</html>

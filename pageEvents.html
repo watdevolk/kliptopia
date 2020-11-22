@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById("div1");
+            var box2 = document.getElementById("div2");
+            box1.addEventListener("click", function () { alert("you clicked box1") });
+            box2.addEventListener("keydown", mouseoverBox2);
+        }
+        function mouseoverBox2() {
+            var box2 = document.getElementById("div2");
+            box2.style.backgroundColor = "#f0f";
+            var msg = "";
+            msg = box2.style.height;
+            alert(msg);
+
+        }
+    </script>
+    <style>
+        #div1 {
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+            background-color: aqua;
+        }
+
+        #div2 {
+            width: 350px;
+            height: 100px;
+            border: 1px solid black;
+            background-color: limegreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="div1">This is div1</div>
+    <br />
+    <div id="div2" style="height: 300px;">This is div2</div>
+
+    <script>
+    </script>
+
+</body>
+</html>

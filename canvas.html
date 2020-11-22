@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function doDraw() {
+            // Always ad this:
+            var can1 = document.getElementById("myCanvas");
+            var ctx = can1.getContext("2d");
+            ;
+            // Text
+            ctx.font = "80px Tahoma";
+            ctx.fillStyle = "darkviolet";
+            ctx.fillText("Magic Mo", 40, 80);
+            ctx.strokeStyle = "black";
+            ctx.strokeText("Magic Mo", 40, 80);
+            ctx.strokeStyle = "none";
+            ;
+            // Images
+            var img = new Image();
+            img.src = "images/MoReg1.png";
+            img.onload = function () {
+                ctx.drawImage(img, 120, 120, 230, 300);
+            };
+            ;
+            // Rectangles
+            ctx.fillStyle = "red";
+            ctx.fillRect(300, 180, 80, 50);
+            ctx.strokeStyle = "black";
+            ctx.strokeRect(300, 180, 80, 50);
+            ;
+            // Lines
+            //ctx.moveTo(720, 50);
+            //ctx.lineTo(780, 350);
+            //ctx.stroke();
+            ;
+            // Circles
+            ctx.arc(550, 320, 40, 75 * (2 * Math.PI / 360), 280 * (2 * Math.PI / 360)); // (x,y,radius,startAngle,endAngle)
+            ctx.stroke();
+            ctx.fillStyle = "blue";
+            ctx.fill();
+            ;
+            // Gradient Fills
+            var grd = ctx.createLinearGradient(100, 450, 200, 670); // (x1,y1,x2,y2)
+            grd.addColorStop(0, "red");
+            grd.addColorStop(0.8, "black");
+            grd.addColorStop(1, "blue");
+            ctx.fillStyle = grd;
+            ctx.fillRect(100, 450, 600, 120);
+        }
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="600" style="border: 1px solid black"></canvas><br />
+    <button onclick="doDraw()">Draw</button>
+</body>
+</html>

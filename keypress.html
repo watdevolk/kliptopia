@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Keypress</title>
+    <script>
+        var horpos = 0;
+        var verpos = 0;
+        window.onload = function () {
+            window.addEventListener("keydown", keyDetected, false);
+            window.addEventListener("keyup", canvasClear, false);
+            canvasClear();
+        }
+
+        function canvasClear() {
+            var can1 = document.getElementById("myCanvas");
+            var ctx = can1.getContext("2d");
+            ctx.fillStyle = "white";
+            ctx.fillRect(horpos, verpos, 80, 80);
+            var img = new Image();
+            img.src = "images/MoReg1.png";
+            img.onload = function () {
+                ctx.drawImage(img, horpos, verpos, 80, 80);
+            }
+        }
+
+
+        function keyDetected(pressed) {
+            var can1 = document.getElementById("myCanvas");
+            var ctx = can1.getContext("2d");
+            keynum = pressed.keyCode;
+            switch (keynum) {
+                // Pressed . (punch)
+                case 190: {
+                    punchSound();
+                    ctx.fillStyle = "white";
+                    ctx.fillRect(horpos, verpos, 80, 80);
+                    var img1 = new Image();
+                    img1.src = "images/MoPunch.png";
+                    img1.onload = function () {
+                        ctx.drawImage(img1, horpos, verpos, 80, 80);
+                    };
+                    break;
+                }
+                // Pressed , (kick)
+                case 188: {
+                    kickSound();
+                    ctx.fillStyle = "white";
+                    ctx.fillRect(horpos, verpos, 80, 80);
+                    var img1 = new Image();
+                    img1.src = "images/MoKick.png";
+                    img1.onload = function () {
+                        ctx.drawImage(img1, horpos, verpos, 80, 80);
+                    };
+                    break;
+                }
+                // Pressed , (left)
+                case 65: {
+                    ctx.fillStyle = "white";
+                    ctx.fillRect(horpos, verpos, 80, 80);
+                    horpos -= 10;
+                    canvasClear();
+                    break;
+                }
+                // Pressed , (right)
+                case 68: {
+                    ctx.fillStyle = "white";
+                    ctx.fillRect(horpos, verpos, 80, 80);
+                    horpos += 10;
+                    canvasClear();
+                    break;
+                }
+                // Pressed , (up)
+                case 87: {
+                    ctx.fillStyle = "white";
+                    ctx.fillRect(horpos, verpos, 80, 80);
+                    verpos -= 5;
+                    canvasClear();
+                    break;
+                }
+                // Pressed , (down)
+                case 83: {
+                    ctx.fillStyle = "white";
+                    ctx.fillRect(horpos, verpos, 80, 80);
+                    verpos += 5;
+                    canvasClear();
+                    break;
+                }
+                default: { }
+            }
+        }
+
+        function punchSound() {
+            var sound = document.getElementById("audio1");
+            sound.currentTime = 0;
+            sound.play();
+        }
+        function kickSound() {
+            var sound = document.getElementById("audio2");
+            sound.currentTime = 0;
+            sound.play();
+        }
+        
+
+    </script>
+    <style>
+        canvas{
+            width:400px;
+            height:400px;
+            border:1px solid black;
+            margin:0;
+            padding:0;
+            background-color: "blue";
+        }
+        p{
+            font-family:Tahoma;
+            font-size:14pt;
+            padding:0;
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas><br />
+    <p style="font-size:24pt;">Mo Cheddah</p>
+    <p>Left   -->   A</p>
+    <p>Right  -->   D</p>
+    <p>Up     -->   W</p>
+    <p>Down   -->   S</p>
+    <p>Punch  -->   .</p>
+    <p>Kick   -->   ,</p>
+    <audio id="audio1" src="aud/punch.mp3"></audio>
+    <audio id="audio2" src="aud/kick.mp3"></audio>
+
+</body>
+</html>

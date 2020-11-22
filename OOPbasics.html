@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function Car(make, model, transmission) {
+            this.make = make;
+            this.model = model;
+            this.transmission = transmission;
+
+            this.reportStats = function () {
+                document.writeln("Make: " + make + "<br>Model: " + model + "<br>");
+            }
+        }
+
+        var myCar = new Car("VW", "Jetta", "manual");
+        myCar.reportStats();
+
+        document.writeln(myCar.model);
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>
